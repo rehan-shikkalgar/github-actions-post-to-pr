@@ -5,16 +5,11 @@ on:
     branches:
       - main
 
-permissions:
-  contents: read
-  pull-requests: write
-  actions: read
-
 jobs:
   units:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v2
     - run: cat $GITHUB_EVENT_PATH
     - run: npm ci
     - run: npm test | tee unit_test_result.txt
